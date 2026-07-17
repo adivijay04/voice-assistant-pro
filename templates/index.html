@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI Voice Assistant</title>
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="/static/style.css" />
+</head>
+<body>
+  <div class="app">
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <h2>Assistant</h2>
+        <button onclick="createNewChat()" class="new-chat-btn">+ New Chat</button>
+      </div>
+
+      <div class="sidebar-section">
+        <label class="toggle-label">
+          <input type="checkbox" id="accessibilityModeToggle" onchange="toggleAccessibilityMode()" />
+          Accessibility Mode
+        </label>
+      </div>
+
+      <div class="sidebar-section">
+        <button class="contrast-btn" onclick="toggleHighContrast()">High Contrast</button>
+      </div>
+
+      <div class="sidebar-section">
+        <label>Language</label>
+        <select id="languageSelect" onchange="updateLanguage()">
+          <option value="en-US">English</option>
+          <option value="hi-IN">Hindi</option>
+          <option value="ta-IN">Tamil</option>
+          <option value="ml-IN">Malayalam</option>
+          <option value="te-IN">Telugu</option>
+        </select>
+      </div>
+
+      <div class="sidebar-section">
+        <label>Voice</label>
+        <select id="voiceSelect"></select>
+      </div>
+
+      <div class="sidebar-section">
+        <label>
+          <input type="checkbox" id="oneTapVoiceToggle" />
+          One-Tap Voice Mode
+        </label>
+      </div>
+
+      <div class="quick-phrases">
+        <h3>Quick Phrases</h3>
+        <button onclick="useQuickPhrase('Hello, how are you?')">Hello</button>
+        <button onclick="useQuickPhrase('Please help me communicate this.')">Help me</button>
+        <button onclick="useQuickPhrase('I need assistance.')">Need assistance</button>
+        <button onclick="useQuickPhrase('Please read this for me.')">Read for me</button>
+        <button onclick="useQuickPhrase('Can you explain this simply?')">Explain simply</button>
+      </div>
+
+      <div id="chatList" class="chat-list"></div>
+    </aside>
+
+    <main class="main">
+      <header class="topbar">
+        <div>
+          <h1>AI Voice Assistant</h1>
+          <p>Accessibility-first multilingual voice assistant</p>
+        </div>
+        <div class="chat-actions">
+          <button onclick="renameCurrentChat()">Rename Chat</button>
+          <button onclick="deleteCurrentChat()">Delete Chat</button>
+        </div>
+      </header>
+
+      <section id="chatWindow" class="chat-window"></section>
+
+      <div class="autocomplete-bar">
+        <button onclick="completeSentence()">Complete Sentence</button>
+      </div>
+
+      <footer class="input-area">
+        <div class="input-row">
+          <textarea id="messageInput" placeholder="Type your message or use the microphone..."></textarea>
+          <button class="send-btn side-send-btn" onclick="sendMessage()">Send</button>
+        </div>
+
+        <div class="controls">
+          <button id="micBtn" class="mic-btn" onclick="startListening()">🎤</button>
+          <button class="stop-btn" onclick="stopSpeaking()">Stop Voice</button>
+          <input type="file" id="pdfUpload" accept=".pdf" />
+          <button onclick="uploadPDF()">Upload PDF</button>
+        </div>
+
+        <div id="statusText" class="status-text">Ready</div>
+      </footer>
+    </main>
+  </div>
+
+  <script src="/static/app.js"></script>
+</body>
+</html>
