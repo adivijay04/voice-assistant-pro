@@ -91,7 +91,7 @@ This project is designed to help **speech-disabled users** and users with access
 ---
 
 ## 📁 Project Structure
-
+```
 voice-assistant-pro/
 │
 ├── app.py
@@ -104,35 +104,37 @@ voice-assistant-pro/
 └── static/
     ├── style.css
     └── app.js
-
+```
 
 ## Prerequisites
 
 Before running the project, install:
-Python 3.10+
-Ollama
+- Python 3.10+
+- Ollama
 A supported browser:
-Google Chrome (recommended)
-Microsoft Edge
+- Google Chrome (recommended)
+- Microsoft Edge
 
 ## 📥 Install Ollama
 
 Download and install Ollama:
+
 👉 https://ollama.com/download
 
 ## Verify installation:
-
+```
 ollama --version
-
+```
 📦 Pull the Required Model
-
+```
 ollama pull llama-3.2-3b-it:latest
-
-## Check installed models:
-
+```
+Check installed models:
+```
 ollama list
-
+```
 Expected output should include:
+
 llama-3.2-3b-it:latest
 
 ## ⚙️ Setup Instructions
@@ -144,10 +146,15 @@ cd voice-assistant-pro
 mkdir templates static
 ```
 Add the project files:
+
 app.py
+
 requirements.txt
+
 templates/index.html
+
 static/style.css
+
 static/app.js
 
 2. Create virtual environment
@@ -187,8 +194,8 @@ You should see:
 Uvicorn running on http://127.0.0.1:8000
 
 6. Open in browser
-Go to:
-http://127.0.0.1:8000
+
+Go to: http://127.0.0.1:8000
 
 ---
 
@@ -196,8 +203,8 @@ http://127.0.0.1:8000
 If you are using the assistant for the first time, follow these steps:
 
 Step 1: Open the app
-Open:
-http://127.0.0.1:8000
+
+Open: http://127.0.0.1:8000
 
 You will see:
 - sidebar
@@ -212,25 +219,32 @@ You will see:
 - PDF upload option
 
 Step 2: Select language
+
 In the sidebar, choose your preferred language:
 - English
 - Hindi
 - Tamil
 - Malayalam
 - Telugu
+
 Note: actual speech support depends on your browser and installed system voices.
 
 Step 3: Select voice
+
 Choose a preferred voice from the Voice dropdown.
 
 The voices shown depend on your browser and operating system.
 
 Step 4: Start a chat
+
 Click:
+
 + New Chat
+
 A fresh conversation starts.
 
 Step 5: Send a typed message
+
 Type your question or message in the textbox.
 
 Examples:
@@ -239,13 +253,15 @@ Examples:
 - Please explain this simply.
 
 Send it by:
-clicking Send
-or pressing Enter
+
+clicking Send or pressing Enter
+
 Use Shift + Enter for a new line.
 
 Step 6: Speak instead of typing
-Click the microphone button:
-🎤
+
+Click the microphone button: 🎤
+
 Speak clearly.
 
 Your spoken words will be converted into text and placed in the textbox.
@@ -253,14 +269,16 @@ Your spoken words will be converted into text and placed in the textbox.
 If One-Tap Voice Mode is enabled, the message will be sent automatically.
 
 Step 7: Listen to the reply
+
 After your message is processed:
-the AI response appears in the chat
-the assistant automatically reads it aloud
+- the AI response appears in the chat
+- the assistant automatically reads it aloud
 
 To stop voice playback:
-click Stop Voice
+- click Stop Voice
 
 Step 8: Use quick phrases
+
 Use quick phrase buttons from the sidebar for faster communication, such as:
 - Hello
 - Help me
@@ -269,7 +287,9 @@ Use quick phrase buttons from the sidebar for faster communication, such as:
 - Explain simply
 
 Step 9: Try sentence completion
+
 Type an incomplete sentence, such as:
+
 I would like to
 Then click:
 - Complete Sentence
@@ -306,17 +326,29 @@ These settings improve usability for accessibility-focused interaction.
 A new user can follow this exact flow:
 
 Start Ollama
+
 Run the FastAPI app
+
 Open http://127.0.0.1:8000
+
 Choose language
+
 Choose voice
+
 Click + New Chat
+
 Type Hello
+
 Press Enter
+
 Listen to the assistant reply
+
 Try microphone input
+
 Use quick phrases
+
 Upload a PDF
+
 Enable Accessibility Mode if needed
 
 ## 🌐 Browser Recommendation
@@ -353,31 +385,39 @@ It stores:
 This allows persistent chat memory.
 
 ## 🔌 API Endpoints
-Home
+1. Home
 
 GET /
-Create new chat
+
+2. Create new chat
 
 POST /api/new_chat
-List chats
+
+3. List chats
 
 GET /api/chats
-Get a chat by session
+
+4. Get a chat by session
 
 GET /api/chat/{session_id}
-Send chat message
+
+5. Send chat message
 
 POST /api/chat
-Rename chat
+
+6. Rename chat
 
 PUT /api/chat/{session_id}/rename
-Delete chat
+
+7. Delete chat
 
 DELETE /api/chat/{session_id}
-Sentence completion
+
+8. Sentence completion
 
 POST /api/complete
-Upload PDF
+
+9. Upload PDF
 
 POST /api/upload_pdf
 
@@ -394,6 +434,7 @@ Run:
 ollama list
 ```
 Make sure it shows:
+
 - llama-3.2-3b-it:latest
 
 Test Ollama:
@@ -438,8 +479,11 @@ Possible next upgrades:
 ---
 ## 🤝 Acknowledgements
 Ollama
+
 FastAPI
+
 PyPDF2
+
 Browser Web Speech API support in Chrome/Edge
 
 ---
